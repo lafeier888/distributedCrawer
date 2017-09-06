@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index_3.css" />
+		<link rel="stylesheet" href="css/jquery.marquee.css" />
+		<link rel="stylesheet" href="css/Rainbow_Loader.css" />
+		<link rel="stylesheet" href="css/button.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				height: 100%;
+				overflow: hidden;
+				background-color: #f5f5f5;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			
+			.keyColor {
+				color: red;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form id="uploadForm">
+			<div class="line1">
+				<span>请选择html文件或网页集合zip文件：</span>
+				<input type="file" name="myfile" />
+			</div>
+			<div class="line2">
+				<span>请选择解析网页的模板：</span>
+				<select class="tpls">
+
+				</select>
+				<div id="add" class="butt" onclick="location.href='test/iframe.html'">新增模板</div>
+				<div id="upload" class="butt">开始结构化</div>
+			</div>
+		</form>
+		<div id="content" class="mq_content">
+			<div id="main" class="mq_main">
+				
+				<div class="borad" style="height: 100%;height: 100%;line-height: 26px;font-size: 12px;overflow: hidden; border: 0px;"></div>
+			</div>
+			<div class="contentArea"></div>
+		</div>
+		<!--加载动画-->
+		<div class="loader" style="width: 60%;left: 0px;top: 50px;text-align: center;margin: auto ">
+			<div class="loader-inner">
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+			<p style="text-align: center;left: 0px;clear: both;">结构化中...</p>
+		</div>
+
+		<div class="footer">
+			<nav aria-label="Page navigation">
+				<ul class="pagination" id="pagination"></ul>
+			</nav>
+		</div>
+		<div class="index" >
+			<div id="back-index" onclick="location.href='index.html'">首页</div>
+		</div>
+	</body>
+	<!--<script type="text/javascript" src="js/data_marquee_3.js"></script>-->
+
+	<script type="text/javascript" src="js/jquery.2.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.twbsPagination.js"></script>
+	<script type="text/javascript" src="js/scroll.js"></script>
+	<script type="text/javascript" src="js/new_struct.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.myscroll').myScroll({
+				speed: 10, //数值越大，速度越慢
+				rowHeight: 26 //li的高度
+			});
+		});
+	</script>
+
+</html>

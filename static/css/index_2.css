@@ -1,0 +1,242 @@
+#header {
+	width: 802px;
+	height: 42px;
+	line-height: -2px;
+	border-radius: 10px;
+	background-color: white;
+	margin: 200px auto 0px auto;
+	text-align: center;
+	z-index: 1;
+	box-shadow: 0px 0px 16px #A9A9A9;
+	-webkit-box-shadow: 0px 0px 16px #A9A9A9;
+	-ms-box-shadow: 0px 0px 16px #A9A9A9;
+	-moz-box-shadow: 0px 0px 16px #A9A9A9;
+}
+
+#header a {
+	font-size: 25px;
+	color: darkgrey;
+	position: relative;
+	left: -6px;
+	top: 4px;
+}
+
+#header select {
+	height: 30px;
+	width: 76px;
+}
+
+#header input[type="search"] {
+	height: 36px;
+	width: 416px;
+	border: 0px;
+	font-size: 14px;
+	color: #A9A9A9;
+	margin-left: 5px;
+}
+
+#header input:focus {
+	color: black;
+	outline: none;
+}
+
+#select {
+	height: 28px;
+	width: 38px;
+	border: 1px solid rgb(0, 165, 190);
+	border-radius: 5px;
+	/*border-color: rgb(0,165,190);*/
+}
+.PuaseButton,
+.SerButton,
+.StopButton {
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	left: 10px;
+	height: 30px;
+	width: 60px;
+	border-radius: 8px;
+	text-align: center;
+	line-height: 32px;
+	background-color: rgb(0, 165, 190);
+	color: white;
+	cursor: pointer;
+}
+
+.StopButton {
+	background-color: red;
+}
+.PuaseButton{
+	background-color: #00F7DE;
+}
+.SerButton_hover,
+.StopButton_hover {
+	background-color: rgb(0, 126, 154);
+	transition: background-color 0.5s;
+	color: white;
+}
+
+.StopButton_hover {
+	background-color: darkred;
+}
+
+.SerButton:active {
+	background-color: rgb(0, 165, 190);
+}
+
+.StopButton:active {
+	background-color: red;
+}
+
+#content {
+	display: none;
+	width: 1200px;
+	height: 570px;
+	margin: 22px auto 10px auto;
+	padding-top: 5px;
+	text-align: center;
+	background-color: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#content:hover {
+	box-shadow: 0 3px 20px #ccc;
+	transition: box-shadow .5s;
+	-moz-transition: box-shadow .5s;
+	-webkit-transition: box-shadow .5s;
+	-o-transition: box-shadow .5s
+}
+#content li{
+	list-style: none;
+}
+#main {
+	height: 566px;
+	overflow: hidden;
+	margin: auto 420px 5px 5px;
+	border-radius: 5px;
+	text-align: left;
+}
+
+.charts {
+	position: absolute;
+	left: 868px;
+	width: 402px;
+	height: 280px;
+	/*background-color: #f5f5f5;*/
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+#charts1 {
+	top: 390px;
+}
+
+#charts2 {
+	top: 115px;
+}
+
+#p1 {
+	background-color: #FD482C;
+	color: white;
+	/*height: 22px;
+	width: 106px;*/
+	position: absolute;
+	top: 398px;
+	left: 975px;
+}
+
+#p2 {
+	background-color: #FD482C;
+	color: white;
+	/*height: 22px;
+	width: 106px;*/
+	position: absolute;
+	left: 1047px;
+	top: 124px;
+}
+
+#box {
+	text-align: center;
+	background-color: white;
+	position: absolute;
+	left: -455px;
+	top: 50px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 3px 20px #ccc;
+}
+
+#cheack {
+	position: absolute;
+	top: 11px;
+	left: 0px;
+}
+
+.taskName,
+.taskStatus,
+.taskNum {
+	display: inline-block;
+	height: 30px;
+	width: 100px;
+	border-bottom: 1px solid #999999;
+	border-left: 1px solid #999999;
+	border-right: 1px solid #999999;
+	margin: 0px;
+	cursor: pointer;
+}
+.taskName{
+	text-align: left;
+}
+.boxTitle div{
+	background-color: dodgerblue;
+	float: left;
+	display: inline-block;
+	height: 30px;
+	width: 100px;
+	border: 1px solid #999999;
+	margin: 0px;
+	color: white;
+}
+
+.myscroll {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	line-height: 26px;
+	font-size: 12px;
+	overflow: hidden;
+	border: 0px;
+}
+
+.myscroll li {
+	margin-left: 25px;
+}
+.footer{
+	display: none;
+	margin: 0px auto;
+	position: relative;
+	top: -21px;
+	text-align: center;
+}
+.index{
+	position: absolute;
+	top: 11px;
+	right: 23px;
+}
+.index div{
+	display: inline-block;
+	
+	height: 32px;
+	width: 64px;
+	border-radius: 8px;
+	text-align: center;
+	line-height: 32px;
+	background-color: rgb(0, 165, 190);
+	color: white;
+	cursor: pointer;
+}
+

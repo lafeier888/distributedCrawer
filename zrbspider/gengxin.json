@@ -1,0 +1,100 @@
+{
+    "vip": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "beauty",
+            "follow": "False"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "shoes-bags",
+            "follow": "False"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "list",
+            "follow": "False"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "detail",
+            "follow": "False"
+        }
+    ],
+    "yhd": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "channel",
+            "follow": "True"
+        }
+    ],
+    "dangdang": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "book",
+            "follow": "False"
+        }
+    ],
+    "amazon": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "dp",
+            "follow": "True"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "product",
+            "follow": "True"
+        }
+    ],
+    "taobao": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "/market",
+            "follow": "False"
+        }
+    ],
+    "jd": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "shouji",
+            "follow": "True"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "item",
+            "follow": "False"
+        }
+    ],
+    "csdn": [
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "blog",
+            "follow": "True"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "article",
+            "follow": "True"
+        },
+        {
+            "callback": "parse_item",
+            "deny": "err",
+            "allow": "detail",
+            "follow": "True"
+        }
+    ]
+}

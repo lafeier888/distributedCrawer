@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/index_2.css" />
+		<link rel="stylesheet" href="css/jquery.marquee.css" />
+		<link rel="stylesheet" href="css/Rainbow_Loader.css" />
+		<script type="text/javascript" src="js/jquery.2.0.min.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/Ajax_index_2.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="lib/jquery.marquee.js"></script>
+		<script type="text/javascript" src="js/data_marquee.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				height: 100%;
+				overflow: hidden;
+				background-color: #f5f5f5;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<a class="header iconfont icon-worm"></a>
+			<select>
+				<option>http://</option>
+				<option>https://</option>
+			</select>
+			<input type="search" value="欢迎使用分布式爬虫系统，请输入完整URL和使用的进程数" />
+			<input type="number" id="select" value="2" />
+			<div id="SerButton" class="SerButton">GO</div>
+			<div id="StopButton" class="StopButton">Stop</div>
+		</div>
+		<div class="tips" style="display:none;position:fixed;top:47px;width:100%;color: #8B0000;text-align:center;font-size: 8px;">当前的爬取的网页文件已存储到服务器 :  <span></span>目录下</div>
+		<div id="content" class="mq_content">
+			<div id="main" class="mq_main">
+				<div id="demo1" class="mq_demo1">
+					<div class="block1" style="height: 566px;width:100%;overflow: hidden;"></div>
+					<div class="block2" style="height: 566px;width:100%;overflow: hidden;"></div>
+				</div>
+				<div id="demo2" class="mq_demo2"></div>
+			</div>
+			<div id="charts1" class="charts"></div>
+			<div id="p1">2333</div>
+			<div id="charts2" class="charts"></div>
+			<div id="p2">2333</div>
+		</div>
+
+		<!--加载动画-->
+		<div class="loader">
+			<div class="loader-inner">
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+			<p>爬取数据中...</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/charts1.js"></script>
+	<script type="text/javascript" src="js/charts2.js"></script>
+
+	<script>
+		$("#SerButton").click(function() {
+			charts2();
+			charts1();
+			setTimeout(function() {
+				$(".loader").css({
+					"display": "block"
+				});
+				$(".tips").css({
+					"display": "block"
+				});
+			}, 650);
+		});
+	</script>
+
+</html>

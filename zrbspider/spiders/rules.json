@@ -1,0 +1,100 @@
+{
+  "taobao": [
+    {
+      "allow": "/market",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    }
+  ],
+  "jd": [
+    {
+      "allow": "shouji",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    },
+    {
+      "allow": "item",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    }
+  ],
+  "dangdang": [
+    {
+      "allow": "book",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    }
+  ],
+  "yhd": [
+    {
+      "allow": "channel",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    }
+  ],
+   "amazon": [
+    {
+      "allow": "dp",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    },
+      {
+      "allow": "product",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    }
+  ],
+  "vip": [
+    {
+      "allow": "beauty",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    },
+    {
+      "allow":"shoes-bags",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    },
+    {
+      "allow":"list",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    },
+    {
+      "allow":"detail",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "False"
+    }
+  ],
+   "csdn": [
+    {
+      "allow": "blog",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    },
+      {
+      "allow": "article",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    },
+      {
+      "allow": "detail",
+      "deny": "err",
+      "callback": "parse_item",
+      "follow": "True"
+    }
+  ]
+}

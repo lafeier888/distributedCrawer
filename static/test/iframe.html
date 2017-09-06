@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数据采集</title>
+		<link rel="stylesheet" href="css/csshake.min.css" />
+
+		<link rel="stylesheet" href="css/Rainbow_Loader.css" />
+		<link rel="stylesheet" href="css/box.css" />
+		<script type="text/javascript" src="js/jquery.2.0.min.js"></script>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+				/*background-color: #f5f5f5;*/
+			}
+			
+			body {
+				background-color: #f5f5f5;
+			}
+			
+			html {
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="begin">
+			<div class="btn1">
+				<p>通过本地文件</p>
+			</div>
+			<div class="btn2">
+				<p>通过输入网址</p>
+			</div>
+		</div>
+		<div id="content">
+			<form id="uploadForm" enctype="multipart/form-data" method="post" onsubmit="return false;">
+				<div class="header shadow">
+					<div style="text-align:right;display: inline-block;">请输入网址：</div>
+					<input id="file" name="url" type="search" required="required" onkeypress="call(event,'upload')" value="www.example.com" />
+					<input type="button" value="提交" id="upload" onclick="toupload()">
+				</div>
+			</form>
+			<iframe id="iframe" name="myframe" src="" width="100%" height="600px" style="float: left;">
+			</iframe>
+			<div id="loading">
+				<div class="loader-inner loader-position">
+					<div class="loader-line-wrap">
+						<div class="loader-line"></div>
+					</div>
+					<div class="loader-line-wrap">
+						<div class="loader-line"></div>
+					</div>
+					<div class="loader-line-wrap">
+						<div class="loader-line"></div>
+					</div>
+					<div class="loader-line-wrap">
+						<div class="loader-line"></div>
+					</div>
+					<div class="loader-line-wrap">
+						<div class="loader-line"></div>
+					</div>
+				</div>
+				<p class="loader-inner loader-position loading-p">网页加载中...</p>
+			</div>
+			<div id="box" class="shadow">
+				<div id="title" onmousedown="Milan_StartMove(event,this.parentNode)" onmouseup="Milan_StopMove(event)">数据采集窗</div>
+				<div id="board"></div>
+				<div id="shade" class="shade">
+					<span class="shake"></span>
+				</div>
+				<input id="name" type="search" placeholder="请输入模板名" onkeypress="call(event,'ensure')" />
+				<div id="show">
+					<input type="text" id="key" placeholder="请输入自定义的key值" onkeypress="call(event,'addItem')" />
+					<input type="text" id="value" placeholder="选中元素的内容" disabled="disabled" />
+					<input type="text" id="xpath" placeholder="选中元素的xpath" disabled="disabled" />
+
+					<button id="ensure">提交</button>
+					<button id="check">检查</button>
+					<button id="addItem">添加</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/pinyin.js"></script>
+	<script>
+		function toupload() {
+			if(file.type == "file") {
+				if(/\.html$/.test(fileName) == false) {
+					alert('请选择HTML文件');
+				} else {
+					sucess();
+				}
+			} else if(file.type == "search") {
+				//判断是否为天猫网页
+				tocheack();
+				console.log(file.value);
+				sucess();
+			}
+			function tocheack() {
+					var url = file.value;
+					if(/^http(s)?:\/\/?/.test(url) == false) {
+						url = "http://" + url;
+						urlcheck(url);
+					} else {
+						urlcheck(url);
+					}
+					console.log(url);
+					file.value = url;
+
+					function urlcheck(u) {
+						if(/spm/.test(u) == true) {
+							var manys = u.split(/(\?|&)/);
+							url = "";
+							manys.forEach(function p(many) {
+								if(/^spm/.test(many) == false) {
+									url = url + many;
+								}
+							});
+							return url;
+						} else {
+							return url;
+						}
+					}
+				}
+			function sucess() {
+				keys = [];
+				values = [];
+				targets = [];
+				msz.data = targets;
+				board.innerText = "";
+				loading.style.display = "block";
+				box.style.display = "none";
+				var sign = 1;
+				//构造post数据包
+				var formData = new FormData($("#uploadForm")[0]);
+				formData.append("sign", sign);
+				doUpload(formData);
+
+				function doUpload(formData) {
+
+					$.ajax({
+						url: 'http://zrb.gotohard.cn/train/',
+						type: 'POST',
+						data: formData,
+						async: true,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function(e) {
+							//如果获取不到网页，返回111
+							console.log("成功");
+							file.disabled = 'true';
+							file.style.cursor = "not-allowed";
+							upload.disabled = 'true';
+							upload.style.cursor = "not-allowed";
+							msz.url = e;
+							document.getElementById("iframe").src = e;
+
+						},
+						error: function(e) {
+							console.log("失败");
+						}
+					});
+					formData = "";
+				}
+			}
+		};
+
+		function call(e, str) {
+			var theEvent = e || window.event;
+			var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+			code = e.keyCode;
+			if(code == 13) {
+				document.getElementById(str).click();
+			}
+
+		}
+	</script>
+
+</html>

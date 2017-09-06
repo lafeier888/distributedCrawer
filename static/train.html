@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/Rainbow_Loader.css" />
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				height: 90%;
+				background-color: #f5f5f5;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			.key,
+			.value {
+				height: 30px;
+				border: 1px solid deepskyblue;
+				padding: 5px;
+				border-radius: 5px;
+				appearance: none;
+			}
+			
+			.key {
+				width: 80px;
+			}
+			
+			.value {
+				width: 150px;
+			}
+			
+			.item {
+				/*width: 250px;*/
+				margin: 5px;
+			}
+			
+			.tips {
+				color: red;
+			}
+			
+			.del {
+				background-color: crimson;
+				height: 40px;
+				width: 76px;
+				border: 1px solid;
+				border-radius: 5px;
+				color: white;
+			}
+			
+			#addItem,
+			#ensure {
+				background-color: #209D51;
+				height: 35px;
+				width: 60px;
+				border-radius: 5px;
+				color: white;
+			}
+			
+			input[name=tplname] {
+				height: 30px;
+				border-radius: 5px;
+				border: 1px solid #00BFFF;
+				text-align: right;
+				padding-right: 15px;
+			}
+			
+			.tpl {
+				width: 320px;
+				border: 1px dashed;
+				padding: 10px;
+				margin-bottom: 20px;
+			}
+			
+			.response {
+				padding-top: 20px;
+			}
+			
+			input[name=htmlfile] {
+				width: 187px;
+			}
+			.content{
+				padding: 30px;
+				cursor: pointer;
+				margin: 80px auto auto auto;
+				width: 372px;
+				background-color: white;
+				border-radius: 10px;
+				box-shadow: 0px 0px 16px #A9A9A9;
+				-webkit-box-shadow: 0px 0px 16px #A9A9A9;
+				-ms-box-shadow: 0px 0px 16px #A9A9A9;
+				-moz-box-shadow: 0px 0px 16px #A9A9A9;
+				transition: box-shadow .5s;
+				-moz-transition: box-shadow .5s;
+				-webkit-transition: box-shadow .5s;
+				-o-transition: box-shadow .5s;
+			}
+			.content:hover {
+				box-shadow: 0px 3px 20px #ccc;
+				-webkit-box-shadow: 0px 3px 20px #ccc;
+				-ms-box-shadow: 0px 3px 20px #ccc;
+				-moz-box-shadow: 0px 3px 20px #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form id="uploadForm" enctype="multipart/form-data" method="post">
+			<div class="content">
+				<div class="tpl">
+					<div style="width: 80px;display: inline-block;margin: 9px;">模板名：</div>
+					<input id="tplname" name="tplname" value="" required="required" />
+					<div style="width: 80px;display: inline-block;margin: 9px;">模板文件：</div>
+					<input name="htmlfile" type="file" required="required" />
+
+				</div>
+				<div class="itemList">
+					<div class="item">
+						<input class="key" placeholder="key" />
+						<input class="value" placeholder="value" />
+						<button class="del">Del</button>
+						<span class="tips"></span>
+					</div>
+				</div>
+				<div>
+					<button id="addItem">新增</button>
+					<button id="ensure">确定</button>
+				</div>
+			</div>
+			<!--加载动画-->
+		<div class="loader" style="width: 100%;height: 100%;background-color: white;opacity: 0.8;top: 0px;left: 0px;">
+			<div class="loader-inner">
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+		</div>
+		</form>
+	</body>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/pinyin.js"></script>
+	<script>
+		//删除一个训练字段
+		$(".del").click(function() {
+			event.preventDefault()
+			$(this).parent(".item").remove();
+		});
+		//字段为空判断
+		$(".key,.value").blur(function() {
+			if($(this).siblings(".key,.value").val() == "" || $(this).val() == "") {
+				$(this).siblings(".tips").text("key或者value不能为空！")
+			} else {
+				$(this).siblings(".tips").text("√")
+				$(this).siblings(".tips").css("color", "green")
+			}
+		});
+		//添加训练字段
+		$("#addItem").click(function() {
+			event.preventDefault()
+			$(".itemList").append(`<div class="item">
+				<input class="key" placeholder="key" />
+				<input class="value" placeholder="value" />
+				<button class="del">Del</button>
+				<span class="tips"></span>
+			</div>`);
+			$(".del").click(function() {
+				$(this).parent(".item").remove();
+			});
+			$(".key,.value").blur(function() {
+				if($(this).siblings(".key,.value").val() == "" || $(this).val() == "") {
+					$(this).siblings(".tips").text("key或者value不能为空！")
+				} else {
+					$(this).siblings(".tips").text("√")
+					$(this).siblings(".tips").css("color", "green")
+				}
+			});
+		});
+		//提交训练字段
+		$("#ensure").click(function() {
+			$(".loader").css({"display":"block"});
+			event.preventDefault()
+			//训练字段
+			var itemList = {};
+			$(".item").each(function() {
+				var inputKey = $(this).children(".key").val();
+//				var key =  inputKey.replace(/\s/g, "");
+				var key =  inputKey;
+				var inputValue = $(this).children(".value").val();
+				var value = inputValue;
+				if(key != "" && value != "") {
+//					var itemKeyAndValue = {};
+//					itemKeyAndValue["key"] = key;
+//					itemKeyAndValue["value"] = value;
+//					itemList.push(itemKeyAndValue);
+					itemList[key]=value;
+				}
+			})
+			console.log(itemList)
+			//保存的模板名
+			var tplName = $("#tplname").val();
+			//构造post数据包
+			var postData = {};
+			postData.tplName = pinyin.getFullChars(tplName) //模板文件名
+			postData.cnTplName = tplName
+			postData.item = itemList; //训练字段集
+			if(postData.tplName.split('.')[0] != "" && postData.item) {
+				var formData = new FormData($("#uploadForm")[0]);
+				formData.append("itemdata",JSON.stringify(postData));
+				
+				console.log(formData)
+				doUpload(formData);
+			}
+
+		})
+
+		function doUpload(formData) {
+			
+			$.ajax({
+				url: 'http://zrb.gotohard.cn/train',
+				type: 'POST',
+				data: formData,
+				async: false,
+				cache: false,
+				contentType: false,
+				processData: false,
+				success: function(returndata) {
+					alert("训练成功");
+					$(".loader").css({"display":"none"});
+					console.log("上传成功");
+					location.href="struct.html";
+					console.log(returndata);
+				},
+				error: function(returndata) {
+					console.log("上传失败");
+					$(".loader").css({"display":"none"});
+					alert("请重新设置模板选项！！！")
+					console.log(returndata);
+				}
+			});
+		}
+		
+	</script>
+
+</html>

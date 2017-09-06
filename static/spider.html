@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/index_2.css" />
+		<link rel="stylesheet" href="css/jquery.marquee.css" />
+		<link rel="stylesheet" href="css/Rainbow_Loader.css" />
+		<link rel="stylesheet" href="css/button.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+			}
+			
+			html {
+				height: 100%;
+			}
+			
+			body {
+				height: 100%;
+				overflow: hidden;
+				background-color: #f5f5f5;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<a class="header iconfont icon-worm"></a>
+			<select>
+				<option>http://</option>
+				<option>https://</option>
+			</select>
+			<input type="search" value="欢迎使用分布式爬虫系统，请输入网址~并输入线程数" />
+			<input type="number" id="select" value="2" />
+			<button id="SerButton" class="SerButton">开始</button>
+			<button id="Puase" class="PuaseButton">暂停</button>
+			<button id="StopButton" class="StopButton">结束</button>
+		</div>
+		<div class="tips" style="display:none;position:fixed;top:47px;width:100%;color: #8B0000;text-align:center;font-size: 8px;"><span></span>当前的爬取的网页文件已存储到服务器 : <span></span>目录下</div>
+		<div id="content" class="mq_content">
+			<div id="main" class="mq_main">
+				<div class="myscroll">
+					<ul>
+						<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+						<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+						<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+						<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+						<li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li><li>&nbsp;</li>
+
+					</ul>
+				</div>
+				<div class="borad" style="height: 100%;height: 100%;line-height: 26px;font-size: 12px;overflow: hidden; border: 0px;"></div>
+			</div>
+			<div id="charts1" class="charts"></div>
+			<div id="p1"></div>
+			<div id="charts2" class="charts"></div>
+			<div id="p2"></div>
+		</div>
+
+		<!--加载动画-->
+		<div class="loader">
+			<div class="loader-inner">
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+				<div class="loader-line-wrap">
+					<div class="loader-line"></div>
+				</div>
+			</div>
+			<p>爬取数据中...</p>
+		</div>
+		<div class="footer">
+			<nav aria-label="Page navigation">
+				<ul class="pagination" id="pagination"></ul>
+			</nav>
+		</div>
+		<div id="cheack" class="tg-list-item">
+			<input class="tgl tgl-flip" id="cb5" type="checkbox" />
+			<label class="tgl-btn" data-tg-off="任务列表" data-tg-on="任务列表" for="cb5"></label>
+		</div>
+		<div id="box">
+			<div class='boxTitle'>
+				<div>站名</div>
+				<div>状态</div>
+				<div>进程数</div>
+			</div>
+			<div id="nav"></div>
+		</div>
+		<div class="index" >
+			<div id="back-index" onclick="location.href='index.html'">首页</div>
+			<div id="set-option" onclick="location.href='/static/config/config.html'">配置</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.2.0.min.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/Ajax_index_2.js"></script>
+	<script type="text/javascript" src="js/charts1.js"></script>
+	<script type="text/javascript" src="js/charts2.js"></script>
+	<script type="text/javascript" src="js/tether.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.twbsPagination.js"></script>
+	<script type="text/javascript" src="js/scroll.js"></script>
+
+	<script>
+		$(function() {
+			$('.myscroll').myScroll({
+				speed: 10, //数值越大，速度越慢
+				rowHeight: 26 //li的高度
+			});
+		});
+	</script>
+
+</html>
